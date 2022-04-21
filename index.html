@@ -1,7 +1,98 @@
 <!DOCTYPE html>
-<html>
-	<head></head>
-	<body>
-		<p>This is my portfolio</p>
-	</body>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Portfolio</title>
+
+	<link rel="stylesheet" href="styles/style.css">
+	<script src="./javascript/data.js"></script>
+</head>
+
+<body>
+
+	<div class="content-container">
+		<div class="header-background">
+
+			<div id="profile-picture">
+				<img src="/images/mephoto.png" />
+			</div>
+
+			<div>
+				<div>
+					<h1>Julius Njuguna</h1>
+					<span>Fullstack Web Developer</span>
+				</div>
+				<nav>
+					<ul>
+						<li><a class="button" href="#">About Me</a></li>
+						<li><a class="button" href="#">Projects</a></li>
+						<li><a class="button" href="#">Blogs</a></li>
+						<li><a class="button" href="#">Contact me</a></li>
+					</ul>
+				</nav>
+				<div><button type="button" class="button main-menu-button">menu</button></div>
+			</div>
+
+		</div>
+
+		<section id="about-me-section">
+			<h3>About Me</h3>
+			<p>
+				It is a long established fact that a reader will be distracted by the readable content of a
+				page when looking at its layout. </p>
+			<p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+				as opposed to using 'Content here, content here', making it look like readable English. </p>
+
+
+			<!-- <a href="" class="button">More About Me</a> -->
+		</section>
+
+		<!-- <section id="skills-section">
+			<h3>Skills</h3>
+
+			<div class="semicircle"></div>
+
+			<div id="skills"></div>
+		</section> -->
+
+		<section id="project-section">
+			<div>
+				<h2 class="section-title">Projects</h2>
+				<p>These are some of the pojects that I have worked on</p>
+				<div id="projects"></div>
+			</div>
+		</section>
+
+	</div>
+
+	<template id="project-card-template">
+		<div class="project">
+			<div>
+				<h4 class="title"></h4>
+				<div class="description"></div>
+				<a href="" class="button">Read More</a>
+			</div>
+		</div>
+	</template>
+
+	<template id="project-detail-modal">
+		<div id="project-detail">
+			<div>
+				<button class="close">&times;</button>
+				<h3 class="project-title">Project name</h3>
+				<div class="project-long-description">Project long description</div>
+				<div class="project-screenshots">
+					<img src="./images/projects/children-593313_640.jpg" alt="">
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<script src="./javascript/main.js"></script>
+
+</body>
+
 </html>
