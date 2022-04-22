@@ -95,6 +95,21 @@ const skills = [
         category:'Back-End'
     },
     {
+        name:'PHP',
+        level: .5,
+        category:'Back-End'
+    },
+    {
+        name:'CodeIgniter',
+        level: .6,
+        category:'Back-End'
+    },
+    {
+        name:'Laravel',
+        level: .3,
+        category:'Back-End'
+    },
+    {
         name:'MSSQL',
         level: .7,
         category: 'Database'
@@ -106,7 +121,7 @@ const skills = [
     },
     {
         name:'PostgreSQL',
-        level: .4,
+        level: .15,
         category: 'Database'
     },
     {

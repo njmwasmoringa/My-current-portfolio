@@ -25,14 +25,14 @@
 					<h1>Julius Njuguna</h1>
 					<span>Fullstack Web Developer</span>
 				</div>
-				<nav>
+				<!-- <nav>
 					<ul>
 						<li><a class="button" href="#">About Me</a></li>
 						<li><a class="button" href="#">Projects</a></li>
 						<li><a class="button" href="#">Blogs</a></li>
 						<li><a class="button" href="#">Contact me</a></li>
 					</ul>
-				</nav>
+				</nav> -->
 				<div><button type="button" class="button main-menu-button">menu</button></div>
 			</div>
 
@@ -40,23 +40,20 @@
 
 		<section id="about-me-section">
 			<h3>About Me</h3>
-			<p>
-				It is a long established fact that a reader will be distracted by the readable content of a
-				page when looking at its layout. </p>
-			<p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
-				as opposed to using 'Content here, content here', making it look like readable English. </p>
+			<p>I am a fullstack web developer living in Kenya with Over 15 Years Professional Experience in Web Development</p>
+			<!-- <p>Over 15 Years Professional Experience in Web Design & Development. </p>
+			<p>I have a diploma in computer engineering and other supporting courses</p> -->
+			<p>I have a great passion for building highly interactive web application that looks and feels great for
+				solving simple and complex problems. </p>
 
 
 			<!-- <a href="" class="button">More About Me</a> -->
 		</section>
 
-		<!-- <section id="skills-section">
-			<h3>Skills</h3>
-
-			<div class="semicircle"></div>
-
-			<div id="skills"></div>
-		</section> -->
+		<section id="skills-section">
+			<h2 class="section-title">Skills</h2>
+			<div id="skills-categories"></div>
+		</section>
 
 		<section id="project-section">
 			<div>
@@ -88,6 +85,17 @@
 					<img src="./images/projects/children-593313_640.jpg" alt="">
 				</div>
 			</div>
+		</div>
+	</template>
+
+	<template id="donut-template">
+		<div class="donut-holder">
+			<svg class="donut" data-pct="50" width="150" height="150" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+				<circle r="65" cx="75" cy="75" fill="transparent" stroke-dasharray="408.6" stroke-dashoffset="0"></circle>
+				<circle class="bar" r="65" cx="75" cy="75" fill="transparent" stroke-dasharray="408.6" stroke-dashoffset="0"></circle>
+				<text x="50%" y="45%" text-anchor="middle" stroke="#000" stroke-width="0.5px" dy=".3em">50%</text>
+				<text x="50%" y="60%" text-anchor="middle" stroke="#000" stroke-width="0.5px" dy=".3em">50%</text>
+			</svg>
 		</div>
 	</template>
 

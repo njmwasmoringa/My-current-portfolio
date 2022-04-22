@@ -1,7 +1,7 @@
 /* clientSide javascript */
 
 const projectsContainer = document.getElementById('projects');
-// const skillsContainer = document.getElementById('skills');
+const skillsContainer = document.getElementById('skills-section');
 const profilePic = document.getElementById('profile-picture');
 const menuButton = document.querySelector('.main-menu-button');
 const nav = document.querySelector('nav');
@@ -38,21 +38,16 @@ const bodyWidth = document.body.offsetWidth;
 
 }); */
 
-
-menuButton.addEventListener('click', ()=>{
+menuButton.addEventListener('click', () => {
     nav.style.display = nav.style.display == 'block' ? 'none' : 'block';
 });
 
-/* skillsContainer.innerHTML = skills.map(skill=>`<div class="skill">
-    <span>${skill.name}</span>
-    <div><div style="width:${100*skill.level}%">${100*skill.level}%</div></div>
-</div>`).join(''); */
-
 let numberOfProjectDisplayed = 3;
-if(bodyWidth < 600){
+if (bodyWidth < 600) {
     numberOfProjectDisplayed = projects.length;
 }
 
+renderSkills();
 renderProjects();
 let animationInterval;
 if (bodyWidth > 600) {
@@ -123,4 +118,72 @@ function animateProjects() {
         projects.push(firstItem);
         renderProjects()
     }, 3000);
+}
+
+function renderSkills() {
+    const donutTemplate = document.querySelector('#donut-template');
+    const skillsCategories = skills.reduce((a, b) => {
+        if (!a[b.category]) {
+            a[b.category] = {
+                totalPacentage: 0,
+                skills: []
+            };
+        }
+        a[b.category].totalPacentage += b.level;
+        a[b.category].skills.push(b);
+        return a;
+    }, {}),
+        categories = Object.keys(skillsCategories);
+
+    const categoriesContainers = skillsContainer.querySelector('#skills-categories');
+    categoriesContainers.innerHTML = '';
+    categories.forEach(category => {
+        const donutChart = donutTemplate.content.cloneNode(true);
+        const categoryDiv = document.createElement('div');
+        categoryDiv.classList.add('category');
+        if (bodyWidth > 600) {
+            categoryDiv.style.width = `${100 / categories.length}%`;
+        }
+        else{
+            categoryDiv.style.width = `94vw`;
+        }
+
+        categoryDiv.appendChild(donutChart);
+        const skillsDiv = document.createElement('div');
+        skillsDiv.classList.add('skills');
+        const texts = categoryDiv.querySelectorAll('text');
+        skillsCategories[category].skills.forEach(skill => {
+            const skillDiv = document.createElement('div');
+            skillDiv.classList.add('skill');
+            skillDiv.innerHTML = `<span>${skill.name}</span> <span>${skill.level * 100}%</span>`;
+            skillsDiv.appendChild(skillDiv);
+        });
+        categoryDiv.appendChild(skillsDiv);
+
+        const pct = (skillsCategories[category].totalPacentage / skillsCategories[category].skills.length) * 100;
+        categoryDiv.querySelector('.donut').setAttribute('data-pct', pct);
+        texts[0].textContent = category;
+        texts[1].textContent = `${Math.floor(pct)}%`;
+        categoriesContainers.appendChild(categoryDiv);
+    });
+
+    donut();
+}
+
+function donut(val = 100) {
+    document.querySelectorAll('.donut').forEach(donut => {
+        val = donut.dataset.pct;
+        const circle = donut.querySelector('.bar');
+        let r = circle.getAttribute('r');
+        console.log(r);
+        let c = Math.PI * (r * 2);
+
+        if (val < 0) { val = 0; }
+        if (val > 100) { val = 100; }
+
+        let pct = ((100 - val) / 100) * c;
+
+        donut.style.strokeDashoffset = pct;
+        circle.style.strokeDashoffset = pct;
+    });
 }
