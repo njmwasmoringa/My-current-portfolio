@@ -63,7 +63,9 @@ p {
 	border-radius: 50%;
 	background-color: red;
 	overflow: hidden;
-	align-self: center
+	align-self: center;
+	background: url(../images/passport-photo.jpg) center center;
+	background-size: cover;
 }
 
 #profile-picture img {
